@@ -47,7 +47,7 @@ export type FullPostData = postMetaData & {
 } 
 
 export async function getPostData(slug: string): Promise<FullPostData> {
-  const fullPath = path.join(postDirectory, `${slug},md`);
+  const fullPath = path.join(postDirectory, `${slug}.md`);
 
   const fileContents = fs.readFileSync(fullPath, "utf-8");
 

@@ -1,5 +1,15 @@
-import { getPostData } from "@/lib/posts";
+import { getPostData, getSortedPostsData } from "@/lib/posts";
 import { notFound } from "next/navigation";
+
+
+export async function generateStaticParams(){
+    const posts = getSortedPostsData();
+
+    return posts.map((post) => ({
+        slug: post.slug,
+    }));
+}
+
 
 type props = {
   params: {
